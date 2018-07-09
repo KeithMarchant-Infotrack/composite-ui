@@ -1,0 +1,27 @@
+﻿@model InfoTrack.Demos.Composite.NetCoreMvcApp.Areas.NetCoreMvcApp.Models.Home.HomeViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+
+<div id="app-net-core-mvc-app">
+    <div>
+        .NET Core MVC Application with Ajax Form:
+    </div>
+
+    <div>
+        Data: @(string.IsNullOrEmpty(Model.Data) ? "No data has been submitted" : Model.Data)
+    </div>
+
+    <form asp-controller="Home"
+          asp-action="Index"
+          data-ajax="true"
+          data-ajax-method="POST"
+          data-ajax-mode="replace"
+          data-ajax-update="#app-net-core-mvc-app">
+
+        @Html.LabelFor(x => x.Data): @Html.TextBoxFor(x => x.Data)
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>

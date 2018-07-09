@@ -1,3 +1,3 @@
-#### Varnish in Vagrant Example
+#### Composite User Interface
 
-Setups Varnish in vagrant to test ESI
+Varnish in vagrant to test ESI or NGINX in docker to test SSI.

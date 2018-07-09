@@ -1,0 +1,26 @@
+﻿@model InfoTrack.Demos.Composite.NetFrameworkMvcApp.Areas.NetFrameworkMvcApp.Models.IndexViewModel
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="app-net-framework-mvc-app">
+    <div>
+        .NET Framework MVC Application with Ajax Form:
+    </div>
+
+    <div>
+        Data: @(string.IsNullOrEmpty(Model.Data) ? "No data has been submitted" : Model.Data)
+    </div>
+
+    <div>
+        @using (Ajax.BeginForm(new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "app-net-framework-mvc-app" }))
+        {
+            @Html.LabelFor(x => x.Data)@(": ")
+            @Html.TextBoxFor(x => x.Data)
+            <input type="submit" value="Search" />
+        }
+    </div>
+</div>

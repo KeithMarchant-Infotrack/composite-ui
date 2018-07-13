@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  nginx:
+    scale: 1
+    start_on_create: true
+
+  redis: 
+    scale: 1
+    start_on_create: true
+
+  composer:
+    scale: 1
+    start_on_create: true
+
+  netcoremvcapp:
+    scale: 1
+    start_on_create: true
+
+  nodeapp:
+    scale: 1
+    start_on_create: true

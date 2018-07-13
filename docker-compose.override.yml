@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  composer:
+    build:
+      context: ./src/InfoTrack.Demos.Composite.Composer
+      dockerfile: InfoTrack.Demos.Composite.Composer/Dockerfile
+
+  netcoremvcapp:
+    build:
+      context: ./src/InfoTrack.Demos.Composite.NetCoreMvcApp
+      dockerfile: InfoTrack.Demos.Composite.NetCoreMvcApp/Dockerfile
+
+  nodeapp:
+    build:
+      context: ./src/InfoTrack.Demos.Composite.NodeApp
+      dockerfile: Dockerfile

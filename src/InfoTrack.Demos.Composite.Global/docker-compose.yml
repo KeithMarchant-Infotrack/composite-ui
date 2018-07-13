@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  external:
+    image: rancher/external-service
+    labels:
+      io.rancher.scheduler.global: true
+      

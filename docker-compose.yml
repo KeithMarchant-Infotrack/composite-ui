@@ -1,31 +1,38 @@
-version: '3'
+version: '2'
+
+# Override any service to become external service
+# IIS or Container or whatever
 
 services:
   nginx:
     image: nginx
+    stdin_open: true
+    tty: true
     volumes:
       - ./src/InfoTrack.Demos.Composite.Nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./src/InfoTrack.Demos.Composite.Nginx:/data/nginx:rw
     ports:
-      - "8080:80"
+      - "8085:80"
     command: [nginx-debug, '-g', 'daemon off;']
 
   redis:
     image: redis:alpine
+    stdin_open: true
+    tty: true
     ports:
       - "6379:6379"
 
   composer:
-    build:
-      context: ./src/InfoTrack.Demos.Composite.Composer
-      dockerfile: InfoTrack.Demos.Composite.Composer/Dockerfile
+    image: composite/composer
+    stdin_open: true
+    tty: true
 
   netcoremvcapp:
-    build:
-      context: ./src/InfoTrack.Demos.Composite.NetCoreMvcApp
-      dockerfile: InfoTrack.Demos.Composite.NetCoreMvcApp/Dockerfile
+    image: composite/netcoremvcapp
+    stdin_open: true
+    tty: true
 
   nodeapp:
-    build:
-      context: ./src/InfoTrack.Demos.Composite.NodeApp
-      dockerfile: Dockerfile
+    image: composite/nodeapp
+    stdin_open: true
+    tty: true
